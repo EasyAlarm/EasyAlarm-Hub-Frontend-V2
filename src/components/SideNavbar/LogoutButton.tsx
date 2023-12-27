@@ -1,8 +1,8 @@
 import { Button } from '@mui/material';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { URLS } from '../../../constants/urls';
-import authService from '../../../services/authService';
+import { URLS } from '../../constants/urls';
+import authService from '../../services/authService';
 
 type LogoutButtonProps = {
     title: string;
