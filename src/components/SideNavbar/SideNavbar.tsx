@@ -3,7 +3,7 @@
 import { Typography, Button } from '@mui/material';
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { LogoutButton } from './LogoutButton/LogoutButton';
+import { LogoutButton } from './components/LogoutButton';
 import { sidebarData } from './sidebarData';
 import { sideNavbarStyles } from './sideNavbarStyles';
 
