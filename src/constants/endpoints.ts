@@ -3,4 +3,9 @@ export const ENDPOINTS = {
         login: 'user/login',
         refresh: 'user/refresh'
     },
+    hub: {
+        status: 'hub/status',
+        arm: 'hub/arm',
+        disarm: 'hub/disarm'
+    }
 } 
