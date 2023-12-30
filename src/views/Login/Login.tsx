@@ -11,6 +11,7 @@ import queryKeys from "../../constants/queryKeys";
 import { URLS } from "../../constants/urls";
 import { AlertType, useAlert } from "../../context/AlertContext";
 import authService from "../../services/authService";
+import { useStore } from "../../store/store";
 import { login } from "./loginApi";
 import { loginContainerStyles } from "./loginStyles";
 import { LoginRequest } from "./loginTypes";
@@ -19,6 +20,8 @@ export const Login: FC = () =>
 {
     const { alert } = useAlert();
     const navigate = useNavigate();
+
+    const setUser = useStore((state) => state.setUser);
 
     const { control, handleSubmit, formState: { errors } } = useForm<LoginRequest>({
         mode: "onChange",
@@ -32,6 +35,8 @@ export const Login: FC = () =>
 
                 authService.setAccessToken(loginResponse.data!.accessToken);
                 authService.setRefreshToken(loginResponse.data!.refreshToken);
+
+                setUser(loginResponse.data!.user);
 
                 navigate(URLS.home);
             },
