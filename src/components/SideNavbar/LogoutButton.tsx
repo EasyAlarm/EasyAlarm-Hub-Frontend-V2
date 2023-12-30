@@ -15,7 +15,8 @@ export const LogoutButton: FC<LogoutButtonProps> = ({ title = "logout", classNam
 
     const onLogoutButtonClick = () =>
     {
-        authService.removeToken();
+        authService.removeRefreshToken();
+        authService.removeAccessToken();
         navigate(URLS.login);
     };
 

@@ -29,7 +29,9 @@ export const Login: FC = () =>
         {
             onSuccess: (loginResponse) =>
             {
-                authService.setToken(loginResponse.data!.token);
+
+                authService.setAccessToken(loginResponse.data!.accessToken);
+                authService.setRefreshToken(loginResponse.data!.refreshToken);
 
                 navigate(URLS.home);
             },

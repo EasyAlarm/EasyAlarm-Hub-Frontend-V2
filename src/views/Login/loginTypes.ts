@@ -6,7 +6,8 @@ export type LoginRequest = {
 }
 
 export type LoginData = {
-    token: string
+    accessToken: string
+    refreshToken: string
     user: User
 }
 
@@ -17,4 +18,15 @@ export type User = {
     date: string
 }
 
+
+export type RefreshTokenRequest = {
+    refreshToken: string
+}
+
+export type RefreshTokenData = {
+    accessToken: string
+    refreshToken: string
+}
+
 export type LoginResponse = BaseResponse<LoginData>
+export type RefreshTokenResponse = BaseResponse<RefreshTokenData>

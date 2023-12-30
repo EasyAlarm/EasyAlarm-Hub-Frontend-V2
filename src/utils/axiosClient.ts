@@ -1,5 +1,6 @@
 import axios from 'axios';
 import authService from '../services/authService';
+import { refresh } from '../views/Login/loginApi';
 
 const axiosClient = axios.create({
 
@@ -7,16 +8,58 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(
-    config => {
-        const token = authService.getToken();
+    config => 
+    {
+        const token = authService.getAccessToken();
 
-        if (token) {
+        if (token) 
+        {
             config.headers['x-auth-token'] = token;
         }
-
+        
         return config;
     },
-    error => {
+    error => 
+    {
+        return Promise.reject(error);
+    }
+);
+
+axiosClient.interceptors.response.use(
+    response => response,
+    async error => {
+        const originalRequest = error.config;
+        if (error.response.status === 401 && !originalRequest._retry) 
+        {
+            originalRequest._retry = true;
+            try 
+            {
+                const refreshToken = authService.getRefreshToken();
+                
+                if(!refreshToken)
+                {
+                    return Promise.reject(error);
+                }
+
+                const response = await refresh({"refreshToken": refreshToken});
+                
+                if (response.status === 200 && response.data) 
+                {
+                    authService.setAccessToken(response.data.accessToken);
+                    authService.setRefreshToken(response.data.refreshToken);
+
+                    axios.defaults.headers.common['x-auth-token'] = response.data.accessToken;
+                    return axiosClient(originalRequest);
+                }
+                
+            } 
+            catch (refreshError) 
+            {
+                authService.removeAccessToken();
+                authService.removeRefreshToken();
+                return Promise.reject(refreshError);
+            }
+        }
         return Promise.reject(error);
     }
 );

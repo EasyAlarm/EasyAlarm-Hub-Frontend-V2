@@ -1,5 +1,6 @@
 export const ENDPOINTS = {
     auth: {
-        login: 'user/login'
-    }
+        login: 'user/login',
+        refresh: 'user/refresh'
+    },
 } 
