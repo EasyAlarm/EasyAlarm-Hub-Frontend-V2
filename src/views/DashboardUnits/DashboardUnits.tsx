@@ -19,14 +19,14 @@ export const DashboardUnits: FC = () =>
     return (
         <DashboardLayout headerText="Units">
             <div css={dashboardUnitsStyles}>
-                {unitsData ? (
-                    unitsData.map((unit, index) => (
-                        <Unit key={index} unit={unit} />
-                    ))
-                ) : (
+                {isGetUnitsLoading ? (
                     <Stack sx={{ width: '97%', color: 'grey.500' }} spacing={2}>
                         <LinearProgress color="inherit" />
                     </Stack>
+                ) : (
+                    unitsData && (unitsData.map((unit, index) => (
+                        <Unit key={index} unit={unit} />
+                    )))
                 )}
             </div>
         </DashboardLayout >
