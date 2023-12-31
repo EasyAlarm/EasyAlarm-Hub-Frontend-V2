@@ -4,6 +4,7 @@ import LoginRouteGuard from "./components/LoginRouteGuard";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import { URLS } from "./constants/urls";
 import { DashboardHome } from "./views/DashboardHome/DashboardHome";
+import { DashboardUnits } from "./views/DashboardUnits/DashboardUnits";
 import { Login } from "./views/Login/Login";
 
 export const AppRoutes: FC = () =>
@@ -21,6 +22,10 @@ export const AppRoutes: FC = () =>
 
                 <Route element={<ProtectedRoutes />}>
                     <Route path={URLS.home} element={<DashboardHome />} />
+                </Route>
+
+                <Route element={<ProtectedRoutes />}>
+                    <Route path={URLS.units} element={<DashboardUnits />} />
                 </Route>
 
             </Routes>

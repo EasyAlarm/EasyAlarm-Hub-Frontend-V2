@@ -6,5 +6,8 @@ export default {
         status: "status",
         arm: "arm",
         disarm: "disarm"
+    },
+    units: {
+        units: "units"
     }
 }
