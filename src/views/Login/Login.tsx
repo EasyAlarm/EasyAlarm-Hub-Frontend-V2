@@ -12,6 +12,7 @@ import { URLS } from "../../constants/urls";
 import { AlertType, useAlert } from "../../context/AlertContext";
 import authService from "../../services/authService";
 import { useStore } from "../../store/store";
+import { ApiError } from "../../types/apiError";
 import { login } from "./loginApi";
 import { loginContainerStyles } from "./loginStyles";
 import { LoginRequest } from "./loginTypes";
@@ -40,9 +41,9 @@ export const Login: FC = () =>
 
                 navigate(URLS.home);
             },
-            onError: (errorResponse: AxiosError) =>
+            onError: (errorResponse: ApiError) =>
             {
-                if (errorResponse.response?.status === 401) 
+                if (errorResponse.statusCode === 401) 
                 {
                     alert("Invalid credentials", AlertType.Error);
                 }
