@@ -8,6 +8,7 @@ import { dashboardLayoutStyles, mainContent } from "./dashboardLayoutStyles";
 type DashboardProps = {
     headerText: string | undefined;
     children: React.ReactNode;
+    headerRightElement?: React.ReactNode;
 };
 
 export const DashboardLayout: FC<DashboardProps> = (props: DashboardProps) =>
@@ -20,9 +21,12 @@ export const DashboardLayout: FC<DashboardProps> = (props: DashboardProps) =>
             <div css={mainContent}>
 
                 <div className="header-container">
-                    <Typography className='header' component="h1" variant="h4">
+                    <Typography className='header-text' component="h1" variant="h4">
                         {props.headerText}
                     </Typography>
+                    <div className="header-right-element">
+                        {props.headerRightElement}
+                    </div>
                 </div>
 
                 <div className="body">
