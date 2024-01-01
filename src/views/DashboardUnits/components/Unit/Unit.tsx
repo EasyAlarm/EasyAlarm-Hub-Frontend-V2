@@ -2,7 +2,7 @@
 
 import { Tooltip, Typography } from "@mui/material";
 import { FC } from "react";
-import { IUnit } from "../dashboardHomeTypes";
+import { IUnit } from "../../dashboardHomeTypes";
 import { unitStyles } from "./unitStyles";
 import SignalCellularConnectedNoInternet4BarIcon from '@mui/icons-material/SignalCellularConnectedNoInternet4Bar';
 
