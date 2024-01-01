@@ -8,4 +8,10 @@ export interface IUnit
     online: boolean,
 }
 
-export type GetUnitsResponse = BaseResponse<Array<IUnit>>
+export type AddUnitRequest = {
+    friendlyName: string
+    deviceID: string
+}
+
+export type UnitsResponse = BaseResponse<Array<IUnit>>
+export type UnitResponse = BaseResponse<IUnit>

@@ -8,6 +8,7 @@ export default {
         disarm: "disarm"
     },
     units: {
-        units: "units"
+        getUnits: "get-units",
+        addUnit: "add-unit"
     }
 }
