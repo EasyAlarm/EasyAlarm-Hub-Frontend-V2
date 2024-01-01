@@ -8,7 +8,7 @@ import { addUnitModalStyles } from "./addUnitModalStyles";
 import { addUnitSchema } from "./addUnitValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AddUnitRequest } from "../../dashboardHomeTypes";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import queryKeys from "../../../../constants/queryKeys";
 import { addUnit } from "../../dashboardUnitsApi";
 import { AlertType, useAlert } from "../../../../context/AlertContext";
