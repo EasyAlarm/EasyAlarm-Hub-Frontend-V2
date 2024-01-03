@@ -8,6 +8,8 @@ import { DashboardLayout } from "../../layouts/DashboardLayout/DashboardLayout";
 import { AddUnitButton } from "./components/AddUnitButton/AddUnitButton";
 import { AddUnitModal } from "./components/AddUnitModal/AddUnitModal";
 import { Unit } from "./components/Unit/Unit";
+import { ViewUnitModal } from "./components/ViewUnitModal/ViewUnitModal";
+import { IUnit } from "./dashboardUnitsTypes";
 import { getUnits } from "./dashboardUnitsApi";
 import { dashboardUnitsStyles } from "./dashboardUnitsStyles";
 
@@ -19,6 +21,20 @@ export const DashboardUnits: FC = () =>
     });
 
     const [isAddUnitModalOpen, setAddUnitModalOpen] = useState(false);
+    const [isViewUnitModalOpen, setViewUnitModalOpen] = useState(false);
+    const [selectedUnit, setSelectedUnit] = useState<IUnit | null>(null);
+
+    const openViewUnitModal = (unit: IUnit) =>
+    {
+        setSelectedUnit(unit);
+        setViewUnitModalOpen(true);
+    };
+
+    const closeViewUnitModal = () =>
+    {
+        setSelectedUnit(null);
+        setViewUnitModalOpen(false);
+    };
 
     return (
         <>
@@ -30,13 +46,17 @@ export const DashboardUnits: FC = () =>
                         </Stack>
                     ) : (
                         unitsData && (unitsData.map((unit, index) => (
-                            <Unit key={index} unit={unit} />
+                            <Unit onClick={() => openViewUnitModal(unit)} key={index} unit={unit} />
                         )))
                     )}
                 </div>
             </DashboardLayout >
 
             <AddUnitModal isOpen={isAddUnitModalOpen} handleClose={() => setAddUnitModalOpen(false)} />
+
+            {selectedUnit && (
+                <ViewUnitModal isOpen={isViewUnitModalOpen} unit={selectedUnit} handleClose={closeViewUnitModal} />
+            )}
         </>
     );
 };
