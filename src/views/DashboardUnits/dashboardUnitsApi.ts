@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { ENDPOINTS } from "../../constants/endpoints";
 import axiosClient from "../../utils/axiosClient";
-import { AddUnitRequest, IUnit, UnitResponse, UnitsResponse, UpdateUnitRequest } from "./dashboardUnitsTypes";
+import { AddUnitRequest, UnitResponse, UnitsResponse, UpdateUnitRequest } from "./dashboardUnitsTypes";
 
 export const getUnits = async (): Promise<UnitsResponse> =>
 {
