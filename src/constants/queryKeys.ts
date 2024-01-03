@@ -6,5 +6,11 @@ export default {
         status: "status",
         arm: "arm",
         disarm: "disarm"
+    },
+    units: {
+        getUnits: "get-units",
+        addUnit: "add-unit",
+        updateUnit: "update-unit",
+        deleteUnit: "delete-unit"
     }
 }

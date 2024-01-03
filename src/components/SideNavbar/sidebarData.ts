@@ -7,7 +7,7 @@ export const sidebarData = [
     },
     {
         title: "Units",
-        link: "/-"
+        link: URLS.units
     },
     {
         title: "Settings",

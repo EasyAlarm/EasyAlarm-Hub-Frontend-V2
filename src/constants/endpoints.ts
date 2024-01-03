@@ -7,5 +7,8 @@ export const ENDPOINTS = {
         status: 'hub/status',
         arm: 'hub/arm',
         disarm: 'hub/disarm'
+    },
+    units: {
+        units: 'unit'
     }
 } 
