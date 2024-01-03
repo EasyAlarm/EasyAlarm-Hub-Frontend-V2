@@ -9,6 +9,8 @@ export default {
     },
     units: {
         getUnits: "get-units",
-        addUnit: "add-unit"
+        addUnit: "add-unit",
+        updateUnit: "update-unit",
+        deleteUnit: "delete-unit"
     }
 }

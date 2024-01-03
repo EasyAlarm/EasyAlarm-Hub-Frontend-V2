@@ -13,5 +13,10 @@ export type AddUnitRequest = {
     deviceID: string
 }
 
+export type UpdateUnitRequest = {
+    friendlyName: string
+}
+
 export type UnitsResponse = BaseResponse<Array<IUnit>>
 export type UnitResponse = BaseResponse<IUnit>
+export type ViewUnitForm = AddUnitRequest;
