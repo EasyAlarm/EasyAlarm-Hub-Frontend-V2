@@ -2,9 +2,8 @@
 
 import { LoadingButton } from "@mui/lab";
 import { Container, TextField, Typography } from "@mui/material";
-import { AxiosError } from "axios";
 import { FC } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import queryKeys from "../../constants/queryKeys";
@@ -24,7 +23,7 @@ export const Login: FC = () =>
 
     const setUser = useStore((state) => state.setUser);
 
-    const { control, handleSubmit, formState: { errors } } = useForm<LoginRequest>({
+    const { handleSubmit, register, formState: { errors } } = useForm<LoginRequest>({
         mode: "onChange",
     });
 
@@ -62,41 +61,24 @@ export const Login: FC = () =>
                 Authentication
             </Typography>
             <form onSubmit={handleSubmit((formData) => { loginMutation(formData); })}>
-                <Controller
-                    name="username"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: 'Username required' }}
-                    render={({ field }) => (
-                        <TextField
-                            {...field}
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            label="Username"
-                            autoFocus
-                            error={Boolean(errors.username)}
-                        />
-                    )}
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    label="Username"
+                    {...register('username')}
+                    error={Boolean(errors.username)}
                 />
-                <Controller
-                    name="password"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: 'Password required' }}
-                    render={({ field }) => (
-                        <TextField
-                            {...field}
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            label="Password"
-                            type="password"
-                            error={Boolean(errors.password)}
-                        />
-                    )}
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    label="Password"
+                    type="password"
+                    {...register('password')}
+                    error={Boolean(errors.password)}
                 />
                 <LoadingButton
                     loading={isLoginLoading}
