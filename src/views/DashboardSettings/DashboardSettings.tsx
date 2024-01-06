@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Tabs, Tab, Box } from '@mui/material';
 import { DashboardLayout } from '../../layouts/DashboardLayout/DashboardLayout';
-import { AlarmSettingsTab } from './components/AlarmSettingsTab';
-import { PingerSettingsTab } from './components/PingerSettingsTab';
+import { AlarmSettingsTab } from './tabs/AlarmSettingsTab';
+import { PingerSettingsTab } from './tabs/PingerSettingsTab';
 
 interface TabPanelProps
 {
