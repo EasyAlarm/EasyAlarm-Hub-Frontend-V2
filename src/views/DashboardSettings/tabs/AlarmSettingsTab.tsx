@@ -12,7 +12,7 @@ import { FixedFooter } from "../../../layouts/FixedFooter/FixedFooter";
 import { getAlarmSettings, saveAlarmSettings } from "../settingsApi";
 import { AlarmSettingsData } from "../settingsTypes";
 import { saveAlarmSettingsSchema } from "../settingsValidationSchema";
-import { SettingsSkeleton } from "./SettingsSkeleton";
+import { SettingsSkeleton } from "../components/SettingsSkeleton";
 import { tabSettingsStyles } from "./tabStyles";
 
 export const AlarmSettingsTab: FC = () =>

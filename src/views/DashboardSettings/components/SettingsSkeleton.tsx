@@ -2,7 +2,7 @@
 
 import { Skeleton, Divider, Typography, Box } from '@mui/material';
 import { FC } from 'react';
-import { tabSettingsStyles } from './tabStyles';
+import { tabSettingsStyles } from '../tabs/tabStyles';
 
 
 export const SettingsSkeleton: FC = () =>

@@ -12,7 +12,7 @@ import { FixedFooter } from "../../../layouts/FixedFooter/FixedFooter";
 import { getPingerSettings, savePingerSettings } from "../settingsApi";
 import { PingerSettingsData } from "../settingsTypes";
 import { savePingerSettingsSchema } from "../settingsValidationSchema";
-import { SettingsSkeleton } from "./SettingsSkeleton";
+import { SettingsSkeleton } from "../components/SettingsSkeleton";
 import { tabSettingsStyles } from "./tabStyles";
 
 export const PingerSettingsTab: FC = () =>
