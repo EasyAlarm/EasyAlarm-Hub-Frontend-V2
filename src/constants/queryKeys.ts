@@ -12,5 +12,11 @@ export default {
         addUnit: "add-unit",
         updateUnit: "update-unit",
         deleteUnit: "delete-unit"
+    },
+    settings: {
+        getAlarm: "get-alarm-settings",
+        saveAlarm: "save-alarm-settings",
+        getPinger: "get-pinger-settings",
+        savePinger: "save-pinger-settings"
     }
 }

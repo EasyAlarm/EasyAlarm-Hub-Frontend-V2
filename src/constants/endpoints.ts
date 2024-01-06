@@ -10,5 +10,9 @@ export const ENDPOINTS = {
     },
     units: {
         units: 'unit'
+    },
+    settings: {
+        alarm: "settings/alarm",
+        pinger: "settings/pinger"
     }
 } 

@@ -11,7 +11,7 @@ export const sidebarData = [
     },
     {
         title: "Settings",
-        link: "/-"
+        link: URLS.settings
     },
     {
         title: "Profiles",
