@@ -8,6 +8,7 @@ type ActionButtonProps = {
     title: string,
     icon: ReactElement,
     isLoading?: boolean;
+    className?: string;
     onClick?: () => void;
 };
 
@@ -15,11 +16,12 @@ export const ActionButton: FC<ActionButtonProps> = ({
     title,
     icon,
     isLoading = false,
+    className,
     onClick,
 }) => 
 {
     return (
-        <button disabled={isLoading} onClick={onClick} css={ActionButtonStyles}>
+        <button disabled={isLoading} className={className} onClick={onClick} css={ActionButtonStyles}>
             {title}
 
             {isLoading ? <CircularProgress size={35} sx={{ color: 'gray' }} /> : icon}

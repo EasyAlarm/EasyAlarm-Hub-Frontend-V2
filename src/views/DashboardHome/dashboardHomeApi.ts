@@ -20,3 +20,9 @@ export const disarmHub = async (): Promise<AxiosResponse> =>
     const res = await axiosClient.post(ENDPOINTS.hub.disarm);
     return res.data;
 }
+
+export const panicHub = async (): Promise<AxiosResponse> =>
+{
+    const res = await axiosClient.post(ENDPOINTS.hub.panic)
+    return res.data;
+}
