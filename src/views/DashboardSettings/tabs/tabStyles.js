@@ -5,8 +5,7 @@ export const tabSettingsStyles = () => css`
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        max-width: 100%;
-        width: 50rem;
+        max-width: 50rem;
 
 
         padding: 1.25rem 2rem 2rem;
