@@ -11,9 +11,9 @@ import { AddUnitRequest } from "../../dashboardUnitsTypes";
 import { useMutation, useQueryClient } from "react-query";
 import queryKeys from "../../../../constants/queryKeys";
 import { addUnit } from "../../dashboardUnitsApi";
-import { AlertType, useAlert } from "../../../../context/AlertContext";
 import { LoadingButton } from "@mui/lab";
 import { ApiError } from "../../../../types/apiError";
+import { toast } from 'react-toastify';
 
 type AddUnitModalProps = {
     isOpen: boolean;
@@ -22,7 +22,6 @@ type AddUnitModalProps = {
 
 export const AddUnitModal: FC<AddUnitModalProps> = ({ isOpen, handleClose }) =>
 {
-    const { alert } = useAlert();
     const queryClient = useQueryClient();
 
     const onClose = () => 
@@ -38,11 +37,11 @@ export const AddUnitModal: FC<AddUnitModalProps> = ({ isOpen, handleClose }) =>
             {
                 queryClient.invalidateQueries(queryKeys.units.getUnits);
                 onClose();
-                alert("Unit added successfully", AlertType.Success);
+                toast.success("Unit added successfully");
             },
             onError: (error: ApiError) =>
             {
-                alert(error.message, AlertType.Error);
+                toast.error(error.message);
             }
         }
     );

@@ -5,13 +5,13 @@ import { Button, LinearProgress, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import queryKeys from "../../../constants/queryKeys";
-import { AlertType, useAlert } from "../../../context/AlertContext";
 import { FixedFooter } from "../../../layouts/FixedFooter/FixedFooter";
 import { Unit } from "../../DashboardUnits/components/Unit/Unit";
 import { dashboardUnitsStyles } from "../../DashboardUnits/dashboardUnitsStyles";
 import { IUnit } from "../../DashboardUnits/dashboardUnitsTypes";
 import { getProfile, updateProfile } from "../dashboardProfilesApi";
 import { ProfileUpdateRequest } from "../dashboardProfilesTypes";
+import { toast } from 'react-toastify';
 
 type ProfileTabProps = {
     profileName: string;
@@ -21,7 +21,6 @@ type ProfileTabProps = {
 export const ProfileTab: React.FC<ProfileTabProps> = ({ profileName, units }) =>
 {
     const queryClient = useQueryClient();
-    const { alert } = useAlert();
 
     const { data: profileUnitsData, isLoading } = useQuery([queryKeys.profiles.getProfile, profileName],
         () => getProfile(profileName), {
@@ -35,11 +34,11 @@ export const ProfileTab: React.FC<ProfileTabProps> = ({ profileName, units }) =>
             {
                 queryClient.invalidateQueries(queryKeys.profiles.getProfile);
                 console.log("success");
-                alert("Profile updated successfully", AlertType.Success);
+                toast.success("Profile updated successfully");
             },
             onError: () =>
             {
-                alert("Something went wrong", AlertType.Error);
+                toast.error("Something went wrong");
             }
         }
     );

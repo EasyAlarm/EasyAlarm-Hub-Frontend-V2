@@ -10,11 +10,11 @@ import { IUnit, UpdateUnitRequest, ViewUnitForm } from "../../dashboardUnitsType
 import { useMutation, useQueryClient } from "react-query";
 import queryKeys from "../../../../constants/queryKeys";
 import { deleteUnit, updateUnit } from "../../dashboardUnitsApi";
-import { AlertType, useAlert } from "../../../../context/AlertContext";
 import { LoadingButton } from "@mui/lab";
 import { ApiError } from "../../../../types/apiError";
 import { viewUnitModalStyles } from "./viewUnitModalStyles";
 import { updateUnitSchema } from "./updateUnitValidationSchema";
+import { toast } from 'react-toastify';
 
 type ViewUnitModalProps = {
     isOpen: boolean;
@@ -24,7 +24,6 @@ type ViewUnitModalProps = {
 
 export const ViewUnitModal: FC<ViewUnitModalProps> = ({ isOpen, handleClose, unit }) =>
 {
-    const { alert } = useAlert();
     const queryClient = useQueryClient();
 
 
@@ -64,11 +63,11 @@ export const ViewUnitModal: FC<ViewUnitModalProps> = ({ isOpen, handleClose, uni
             {
                 queryClient.invalidateQueries(queryKeys.units.getUnits);
                 onClose();
-                alert("Unit updated successfully", AlertType.Success);
+                toast.success("Unit updated successfully");
             },
             onError: (error: ApiError) =>
             {
-                alert(error.message, AlertType.Error);
+                toast.error(error.message);
             }
         }
     );
@@ -80,11 +79,11 @@ export const ViewUnitModal: FC<ViewUnitModalProps> = ({ isOpen, handleClose, uni
             {
                 queryClient.invalidateQueries(queryKeys.units.getUnits);
                 onClose();
-                alert("Unit deleted successfully", AlertType.Success);
+                toast.success("Unit deleted successfully");
             },
             onError: (error: ApiError) =>
             {
-                alert(error.message, AlertType.Error);
+                toast.error(error.message);
             }
         }
     );

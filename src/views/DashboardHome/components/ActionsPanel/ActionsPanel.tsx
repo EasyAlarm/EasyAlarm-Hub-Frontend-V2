@@ -10,11 +10,10 @@ import WarningIcon from '@mui/icons-material/Warning';
 import { useMutation, useQueryClient } from "react-query";
 import queryKeys from "../../../../constants/queryKeys";
 import { armHub, disarmHub, panicHub } from "../../dashboardHomeApi";
-import { AlertType, useAlert } from "../../../../context/AlertContext";
+import { toast } from 'react-toastify';
 
 export const ActionsPanel: FC = () =>
 {
-    const { alert } = useAlert();
     const queryClient = useQueryClient();
 
     const [loadingStates, setLoadingStates] = useState({
@@ -33,13 +32,13 @@ export const ActionsPanel: FC = () =>
     const { mutate: armMutation } = useMutation((profile: string) => armHub(profile), {
         onSuccess: () =>
         {
-            alert("Hub successfully armed", AlertType.Success);
+            toast.success("Hub successfully armed");
             resetLoadingStates();
             queryClient.invalidateQueries(queryKeys.hub.status);
         },
         onError: () =>
         {
-            alert("Hub could not be armed", AlertType.Error);
+            toast.error("Hub could not be armed");
             resetLoadingStates();
         },
     });
@@ -47,13 +46,13 @@ export const ActionsPanel: FC = () =>
     const { mutate: panicMutation, isLoading: isPanicLoading } = useMutation(() => panicHub(), {
         onSuccess: () =>
         {
-            alert("Hub successfully panicked", AlertType.Info);
+            toast.info("Hub successfully panicked");
             resetLoadingStates();
             queryClient.invalidateQueries(queryKeys.hub.status);
         },
         onError: () =>
         {
-            alert("Hub could not be panicked", AlertType.Error);
+            toast.error("Hub could not be panicked");
             resetLoadingStates();
         },
     });
@@ -70,11 +69,11 @@ export const ActionsPanel: FC = () =>
             onSuccess: () =>
             {
                 queryClient.invalidateQueries(queryKeys.hub.status);
-                alert("Hub successfully disarmed", AlertType.Success);
+                toast.success("Hub successfully disarmed");
             },
             onError: () =>
             {
-                alert("Hub could not be disarmed", AlertType.Error);
+                toast.error("Hub could not be disarmed");
             }
         }
     );

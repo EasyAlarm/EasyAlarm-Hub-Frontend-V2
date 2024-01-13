@@ -8,17 +8,16 @@ import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import queryKeys from "../../constants/queryKeys";
 import { URLS } from "../../constants/urls";
-import { AlertType, useAlert } from "../../context/AlertContext";
 import authService from "../../services/authService";
 import { useStore } from "../../store/store";
 import { ApiError } from "../../types/apiError";
 import { login } from "./loginApi";
 import { loginContainerStyles } from "./loginStyles";
 import { LoginRequest } from "./loginTypes";
+import { toast } from 'react-toastify';
 
 export const Login: FC = () =>
 {
-    const { alert } = useAlert();
     const navigate = useNavigate();
 
     const setUser = useStore((state) => state.setUser);
@@ -44,11 +43,11 @@ export const Login: FC = () =>
             {
                 if (errorResponse.statusCode === 401) 
                 {
-                    alert("Invalid credentials", AlertType.Error);
+                    toast.success("Invalid credentials");
                 }
                 else
                 {
-                    alert("Login failed", AlertType.Error);
+                    toast.error("Login failed");
                 }
             }
 

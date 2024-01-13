@@ -7,17 +7,16 @@ import { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import queryKeys from "../../../constants/queryKeys";
-import { AlertType, useAlert } from "../../../context/AlertContext";
 import { FixedFooter } from "../../../layouts/FixedFooter/FixedFooter";
 import { getAlarmSettings, saveAlarmSettings } from "../settingsApi";
 import { AlarmSettingsData } from "../settingsTypes";
 import { saveAlarmSettingsSchema } from "../settingsValidationSchema";
 import { SettingsSkeleton } from "../components/SettingsSkeleton";
 import { tabSettingsStyles } from "./tabStyles";
+import { toast } from 'react-toastify';
 
 export const AlarmSettingsTab: FC = () =>
 {
-    const { alert } = useAlert();
     const queryClient = useQueryClient();
 
     const { data: settings, isLoading: areSettingsLoading } = useQuery(queryKeys.settings.getAlarm, getAlarmSettings, {
@@ -31,11 +30,11 @@ export const AlarmSettingsTab: FC = () =>
             onSuccess: () =>
             {
                 queryClient.invalidateQueries(queryKeys.settings.getAlarm);
-                alert("Settings saved successfully", AlertType.Success);
+                toast.success("Settings saved successfully");
             },
             onError: () =>
             {
-                alert("Something went wrong", AlertType.Error);
+                toast.error("Something went wrong");
             }
         }
     );
