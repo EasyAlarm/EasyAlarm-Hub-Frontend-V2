@@ -18,5 +18,10 @@ export default {
         saveAlarm: "save-alarm-settings",
         getPinger: "get-pinger-settings",
         savePinger: "save-pinger-settings"
+    },
+    profiles: {
+        getProfiles: "get-profiles",
+        getProfile: "get-profile",
+        updateProfile: "update-profile"
     }
 }

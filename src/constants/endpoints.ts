@@ -15,5 +15,8 @@ export const ENDPOINTS = {
     settings: {
         alarm: "settings/alarm",
         pinger: "settings/pinger"
+    },
+    profiles: {
+        profiles: "profile",
     }
 } 

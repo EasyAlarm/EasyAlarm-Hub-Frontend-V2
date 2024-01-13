@@ -15,7 +15,7 @@ export const sidebarData = [
     },
     {
         title: "Profiles",
-        link: "/-"
+        link: URLS.profiles
     },
     {
         title: "Logs",

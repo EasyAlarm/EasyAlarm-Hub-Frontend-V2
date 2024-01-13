@@ -9,12 +9,13 @@ import SignalCellularConnectedNoInternet4BarIcon from '@mui/icons-material/Signa
 type UnitProps = {
     unit: IUnit;
     onClick: () => void;
+    backgroundColor?: string;
 };
 
-export const Unit: FC<UnitProps> = ({ unit, onClick }) =>
+export const Unit: FC<UnitProps> = ({ unit, onClick, backgroundColor = "#E5E5E5" }) =>
 {
     return (
-        <div onClick={onClick} css={unitStyles}>
+        <div onClick={onClick} css={unitStyles({ backgroundColor })}>
             <Typography className="friendly-name" variant='h5'>
                 {unit.friendlyName}
             </Typography>

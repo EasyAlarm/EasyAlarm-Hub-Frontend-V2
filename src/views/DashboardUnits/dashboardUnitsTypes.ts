@@ -2,6 +2,7 @@ import { BaseResponse } from "../../types/baseResponse";
 
 export interface IUnit 
 {
+    _id: string,
     type: string,
     friendlyName: string,
     deviceID: string,

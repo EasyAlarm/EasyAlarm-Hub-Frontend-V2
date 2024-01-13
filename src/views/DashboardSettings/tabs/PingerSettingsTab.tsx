@@ -62,7 +62,7 @@ export const PingerSettingsTab: FC = () =>
                 <form css={tabSettingsStyles} onSubmit={handleSubmit((formData) => { saveSettingsMutation(formData); })}>
                     <div className="form-elements">
                         <Typography className="container-title">
-                            Configure Alarm Settings
+                            Configure Pinger Settings
                         </Typography>
 
                         <Divider />

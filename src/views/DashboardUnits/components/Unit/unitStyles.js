@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const unitStyles = () => css`
+export const unitStyles = ({ backgroundColor }) => css`
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -15,7 +15,7 @@ export const unitStyles = () => css`
 
     cursor: pointer;
 
-    background-color: #E5E5E5;
+    background-color: ${backgroundColor};
 
     .friendly-name {
         margin-top: 1.5rem;

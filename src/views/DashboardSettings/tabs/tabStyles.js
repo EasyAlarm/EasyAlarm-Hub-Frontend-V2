@@ -16,14 +16,4 @@ export const tabSettingsStyles = () => css`
             color: #867B7B;
         }
     }
-
-
-    .form-footer {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        background-color: white;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
 `;

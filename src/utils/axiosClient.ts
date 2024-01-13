@@ -86,4 +86,11 @@ axiosClient.interceptors.response.use(null, error => {
     }
 })
 
+axiosClient.interceptors.request.use(request => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(request), 300);
+  });
+});
+
+
 export default axiosClient;
