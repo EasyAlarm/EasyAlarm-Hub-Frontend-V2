@@ -33,7 +33,7 @@ export const mainContent = () => css`
             padding: 2rem 0 2rem;
         }
         
-        z-index: 10000;
+        z-index: 1000;
     }
 
 
