@@ -117,17 +117,15 @@ export const AlarmSettingsTab: FC = () =>
                     </div>
 
                     <FixedFooter>
-                        <div className="form-footer">
-                            <LoadingButton loading={areSaveSettingsLoading}
-                                type="submit"
-                                disabled={!isValid}
-                                variant="contained"
-                                color="primary">
-                                Save
-                            </LoadingButton>
+                        <LoadingButton loading={areSaveSettingsLoading}
+                            type="submit"
+                            disabled={!isValid}
+                            variant="contained"
+                            color="primary">
+                            Save
+                        </LoadingButton>
 
-                            <Button onClick={(): void => reset()} variant="outlined">Cancel</Button>
-                        </div>
+                        <Button onClick={(): void => reset()} variant="outlined">Cancel</Button>
                     </FixedFooter>
                 </form >
             )}

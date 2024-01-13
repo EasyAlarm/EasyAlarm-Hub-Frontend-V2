@@ -19,4 +19,14 @@ export const fixedFooterStyles = () => css`
             z-index: 10;
         }
     }
+    
+    .footer-body {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        background-color: white;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 `;
+

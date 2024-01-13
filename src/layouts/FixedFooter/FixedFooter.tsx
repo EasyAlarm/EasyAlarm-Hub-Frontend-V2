@@ -14,7 +14,9 @@ export const FixedFooter: FC<FixedFooterProps> = ({ children }) =>
         <footer css={fixedFooterStyles}>
             <div className="wrapper">
                 <Divider className="divider" />
-                {children}
+                <div className="footer-body">
+                    {children}
+                </div>
             </div>
         </footer>
     );
