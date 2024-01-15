@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { Typography, Button } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { LogoutButton } from './LogoutButton';
