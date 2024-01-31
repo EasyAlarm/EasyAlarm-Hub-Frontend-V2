@@ -3,5 +3,6 @@ export const URLS = {
     home: "/home",
     units: "/units",
     settings: "/settings",
-    profiles: "/profiles"
+    profiles: "/profiles",
+    logs: "/logs",
 }

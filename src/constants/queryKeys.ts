@@ -23,5 +23,8 @@ export default {
         getProfiles: "get-profiles",
         getProfile: "get-profile",
         updateProfile: "update-profile"
+    },
+    logs: {
+        getLogs: "get-logs",
     }
 }

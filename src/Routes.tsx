@@ -4,6 +4,7 @@ import LoginRouteGuard from "./components/LoginRouteGuard";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import { URLS } from "./constants/urls";
 import { DashboardHome } from "./views/DashboardHome/DashboardHome";
+import { DashboardLogs } from "./views/DashboardLogs/DashboardLogs";
 import { DashboardProfiles } from "./views/DashboardProfiles/DashboardProfiles";
 import DashboardSettings from "./views/DashboardSettings/DashboardSettings";
 import { DashboardUnits } from "./views/DashboardUnits/DashboardUnits";
@@ -36,6 +37,10 @@ export const AppRoutes: FC = () =>
 
                 <Route element={<ProtectedRoutes />}>
                     <Route path={URLS.profiles} element={<DashboardProfiles />} />
+                </Route>
+
+                <Route element={<ProtectedRoutes />}>
+                    <Route path={URLS.logs} element={<DashboardLogs />} />
                 </Route>
 
             </Routes>

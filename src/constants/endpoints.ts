@@ -18,5 +18,8 @@ export const ENDPOINTS = {
     },
     profiles: {
         profiles: "profile",
+    },
+    logs: {
+        logs: "log"
     }
 } 
