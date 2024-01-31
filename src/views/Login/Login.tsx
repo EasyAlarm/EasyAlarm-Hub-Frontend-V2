@@ -43,7 +43,7 @@ export const Login: FC = () =>
             {
                 if (errorResponse.statusCode === 401) 
                 {
-                    toast.success("Invalid credentials");
+                    toast.error("Invalid credentials");
                 }
                 else
                 {
