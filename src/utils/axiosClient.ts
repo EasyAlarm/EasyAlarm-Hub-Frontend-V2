@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import authService from '../services/authService';
 import { ApiError } from '../types/apiError';
 import { refresh } from '../views/Login/loginApi';
@@ -30,7 +31,12 @@ axiosClient.interceptors.response.use(
     response => response,
     async error => {
         const originalRequest = error.config;
-        if (error.response.status === 401 && !originalRequest._retry) 
+        
+        if(!error.response)
+        {
+            toast.error("Could not establish connection with hub");
+        }
+        else if (error.response.status === 401 && !originalRequest._retry) 
         {
             originalRequest._retry = true;
             try 
