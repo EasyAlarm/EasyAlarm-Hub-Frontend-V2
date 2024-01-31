@@ -29,7 +29,7 @@ export const mainContent = () => css`
         }
 
         .header-right-element {
-            margin-inline-end: 2rem;
+            margin-inline-end: 17rem;
             padding: 2rem 0 2rem;
         }
         
