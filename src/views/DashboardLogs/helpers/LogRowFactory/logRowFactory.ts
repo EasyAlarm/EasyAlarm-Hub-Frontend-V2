@@ -61,7 +61,9 @@ export class LogRowsFactory {
     private convertIsoDatesToReadable(log: LogData): string
     {
         const date = new Date(log.timestamp);
-        return date.toLocaleString();
+        const navigatorLanguage = navigator.language || navigator.languages[0];
+
+        return date.toLocaleString(navigatorLanguage, {hourCycle: 'h23'});
     }
 
 
